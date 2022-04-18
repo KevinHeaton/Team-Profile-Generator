@@ -5,7 +5,6 @@ const generateEmployeeCard = employees => {
       <h2>${employees.name}</h2>
       <h3>Employee</h3><i class="fa-solid fa-briefcase"></i>
     </div>
-
     <div class="card-info ">
       <p class="idNumber">ID Number: ${employees.id}</p>
       <p class="email">Email: ${employees.email}</p>
@@ -21,7 +20,6 @@ const generateManagerCard = manager => {
       <h2>${manager.name}</h2>
       <h3>Manager</h3><i class="fa-solid fa-people-roof"></i>
     </div>
-
     <div class="card-info ">
       <p class="idNumber">ID Number: ${manager.id}</p>
       <p class="email">Email: ${manager.email}</p>
@@ -38,7 +36,6 @@ const generateEngineerCard = engineer => {
       <h2>${engineer.name}</h2>
       <h3>Engineer</h3><i class="fa-solid fa-display-code"></i>
     </div>
-
     <div class="card-info ">
       <p class="idNumber">ID Number: ${engineer.id}</p>
       <p class="email">Email: ${engineer.email}</p>
@@ -55,7 +52,6 @@ const generateInternCard = intern => {
       <h2>${intern.name}</h2>
       <h3>Intern</h3><i class="fa-solid fa-graduation-cap"></i>
     </div>
-
     <div class="card-info ">
       <p class="idNumber">ID Number: ${intern.id}</p>
       <p class="email">Email: ${intern.email}</p>
@@ -65,7 +61,7 @@ const generateInternCard = intern => {
   `
 };
 
-generateHTML = data => {
+const generateHTML = data => {
   cardArray = [];
 
   for (let i = 0; i < data.length; i++) {
@@ -108,7 +104,6 @@ const generateEmployeePage = employeeCards => {
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,24 +113,21 @@ const generateEmployeePage = employeeCards => {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
   <header>
     <div class="header ">
       <h1 class="text " >My Team</h1> 
     </div>
   </header>
-
   <main>
     <div class="cards ">
       ${employeeCards}
     </div>
   </main>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
 `;
 }
 
-module.exports = pageTemplate;
+module.exports = { generateHTML };

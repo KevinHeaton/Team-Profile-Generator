@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatePage = require('./src/pageTemplate');
+const { generateHTML } = require('./src/pageTemplate');
 
 // profiles
 const Employee = require('./lib/Employee');
@@ -137,5 +137,24 @@ const addEmployee = () => {
 };
 
 
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+      if (err) {
+        console.log(err);
+        return;
+      } else {
+        console.log('You team has been generated!');
+      }
+    })
+}
 
-addEmployee();
+addEmployee()
+  .then(employeeArray => {
+    return generateHTML(employeeArray);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .catch(err => {
+    console.log(err);
+  });
